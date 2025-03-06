@@ -1,12 +1,29 @@
-# React + Vite
+# Photo Gallery App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Project Overview
+A  React-based photo gallery app that captures images from the user's camera and displays them in a paginated gallery.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- **Camera Capture**: Uses `getUserMedia` to capture images.
+- **Image Gallery**: Displays captured images in a paginated layout.
+- **Pagination**: Allows users to navigate through images.
+- **IndexSB**: Persists images across page reloads.
+- **Accessibility & Responsive Design**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📦 Installation
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/abdulwaqar844/frontend-challenge/tree/feature/abdul_waqar.git
+   cd frontend-challenge/photo-gallery-app
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Start the development server:
+   ```sh
+   npm start
+   ```
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
