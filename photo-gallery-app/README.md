@@ -22,7 +22,7 @@ A  React-based photo gallery app that captures images from the user's camera and
    ```
 3. Start the development server:
    ```sh
-   npm start
+   npm run dev
    ```
 
 
