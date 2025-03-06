@@ -1,4 +1,5 @@
 import Camera from "../components/Camera";
+import Gallery from "../components/Gallery";
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
 
         <div className="flex flex-col gap-4">
           <div className="p-1 md:p-6 bg-[#131729] min-h-[80vh] text-white rounded-lg shadow-md h-40 flex items-center justify-center">
-            Container 2
+            <Gallery />
           </div>
         </div>
       </div>

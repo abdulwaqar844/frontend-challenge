@@ -28,7 +28,7 @@ const photoSlice = createSlice({
     totalPhotos: 0,
     status: "idle",
     currentPage: 1,
-    itemsPerPage: 4,
+    itemsPerPage: 6,
   },
   reducers: {
     setPage: (state, action) => {
