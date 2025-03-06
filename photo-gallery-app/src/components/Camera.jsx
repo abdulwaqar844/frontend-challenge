@@ -70,7 +70,7 @@ const Camera = () => {
         ></video>
 
         {stream && (
-          <div className="py-4 md:py-6 sm:space-y-2 md:space-y-0 px-4 flex sm:flex-row flex-col justify-center items-center gap-2">
+          <div className="py-4 md:py-6 sm:space-y-2 md:space-y-0 px-4 flex sm:flex-row flex-row justify-center items-center gap-2">
             <button
               className="bg-red-800 hover:bg-red-600  text-white font-bold py-2 px-4 rounded w-32"
               onClick={stopCamera}
