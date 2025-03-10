@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { savePhotoToDB, getPhotosFromDB } from "../utils/indexedDB";
+import { savePhotoToDB, getPhotosFromDB, deletePhotoFromDB, updateFavoritePhoto } from "../utils/indexedDB";
 
 // Async action to fetch paginated photos
 export const fetchPhotos = createAsyncThunk(
@@ -20,13 +20,34 @@ export const addPhotoAndFetch = createAsyncThunk(
     dispatch(fetchPhotos({ page: currentPage, count: itemsPerPage }));
   }
 );
+export const deletePhotoAndFetch = createAsyncThunk(
+  "photos/deletePhotoAndFetch",
+  async (id, { dispatch, getState }) => {
+    await deletePhotoFromDB(id); // Delete from IndexedDB
+
+    // Fetch updated photos list
+    const { currentPage, itemsPerPage } = getState().photos;
+    dispatch(fetchPhotos({ page: currentPage, count: itemsPerPage }));
+  }
+);
+// slice to update photos state
+export const changeFavoriteAndFetch = createAsyncThunk(
+  "photos/updatePhotoAndFetch",
+  async ({ id, favorite }, { dispatch, getState }) => {
+    await updateFavoritePhoto(id, favorite); // Update IndexedDB
+
+    // Fetch updated photos list
+    const { currentPage, itemsPerPage } = getState().photos;
+    dispatch(fetchPhotos({ page: currentPage, count: itemsPerPage }));
+  }
+);
+
 
 const photoSlice = createSlice({
   name: "photos",
   initialState: {
     photos: [],
     totalPhotos: 0,
-    status: "idle",
     currentPage: 1,
     itemsPerPage: 6,
   },

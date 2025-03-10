@@ -15,9 +15,9 @@ const initDB = async () => {
 };
 
 // Save a photo
-export const savePhotoToDB = async (photo) => {
+export const savePhotoToDB = async (photo , favorite=false , title ='') => {
   const db = await initDB();
-  return db.add(STORE_NAME, { id: Date.now(), photo });
+  return db.add(STORE_NAME, { id: Date.now(), photo , favorite, title });
 };
 
 // Retrieve paginated photos sorted by ID 
@@ -36,4 +36,22 @@ export const getPhotosFromDB = async (page = 1, count = 4) => {
     photos: paginatedPhotos,
     totalPhotos: allPhotos.length,
   };
+};
+// Delete photo from IndexedDB
+export const deletePhotoFromDB = async (id) => {
+  const db = await initDB();
+  return db.delete(STORE_NAME, id);
+};
+// update photo property favorite
+export const updateFavoritePhoto = async (id, favorite) => {
+  const db = await initDB();
+  // Get the existing photo object
+  const photoObj = await db.get(STORE_NAME, id);
+  if (!photoObj) return null;
+  
+  // Update only the favorite property
+  photoObj.favorite = favorite;
+  
+  // Save the updated object back to the database
+  return db.put(STORE_NAME, photoObj);
 };
